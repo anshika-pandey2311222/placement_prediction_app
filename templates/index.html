@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Placement Predictor</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: #fff;
+      text-align: center;
+      padding-top: 80px;
+    }
+    form {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 12px;
+      width: 300px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Placement Prediction System</h1>
+  <form action="/predict" method="post">
+    <input type="number" name="iq" placeholder="Enter IQ" required step="0.01" /><br />
+    <input type="number" name="cgpa" placeholder="Enter CGPA" required step="0.01" /><br />
+    <button type="submit">Predict</button>
+  </form>
+  {% if prediction_text %}
+  <div class="result">{{ prediction_text }}</div>
+  {% endif %}
+</body>
+</html>

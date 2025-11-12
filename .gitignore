@@ -1,0 +1,33 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment folders
+venv/
+env/
+.venv/
+
+# Model files and large data
+*.pkl
+*.joblib
+*.h5
+*.model
+*.npy
+*.npz
+
+# Environment variables or secrets
+.env
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Logs and system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Render / deployment cache
+.render/
