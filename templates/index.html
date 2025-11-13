@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Placement Predictor</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(to right, #2193b0, #6dd5ed);
-      color: #fff;
-      text-align: center;
-      padding-top: 80px;
-    }
-    form {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
-      border-radius: 12px;
-      width: 300px;
-      margin: auto;
-      backdrop-filter: blur(10px);
-    }
-    input {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-    }
-    button {
-      background-color: #fff;
-      color: #333;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Predictor</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #74ebd5;
+        }
+
+        button {
+            background-color: #74ebd5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #5dd3b6;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-  <h1>🎓 Placement Prediction System</h1>
-  <form action="/predict" method="post">
-    <input type="number" name="iq" placeholder="Enter IQ" required step="0.01" /><br />
-    <input type="number" name="cgpa" placeholder="Enter CGPA" required step="0.01" /><br />
-    <button type="submit">Predict</button>
-  </form>
-  {% if prediction_text %}
-  <div class="result">{{ prediction_text }}</div>
-  {% endif %}
+    <div class="container">
+        <h1>🎓 Placement Predictor</h1>
+
+        <form action="/predict" method="POST">
+            <input type="number" name="iq" step="any" placeholder="Enter IQ" required>
+            <input type="number" name="cgpa" step="any" placeholder="Enter CGPA" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
 </body>
 </html>
